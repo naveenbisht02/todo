@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="shortcut icon" type="image/png" href="image/favicon.png" />
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/model.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        controller = new AppController();
+        $(document).ajaxStop(function() {
+          controller.render();
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <h1>ToDo</h1>
+    <div class="card">
+      <div class="flex">
+        <div>
+          <form id="input-form">
+            <div class="search">
+              <button type="submit" class="searchButton" title="Add to List">
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <input
+                type="text"
+                id="input"
+                class="searchTerm"
+                placeholder="What to do?"
+                required
+              />
+            </div>
+          </form>
+        </div>
+
+        <div style="flex: 1;overflow: auto;">
+          <ul id="list"></ul>
+        </div>
+        <div class="bottom_nav">
+          <button class="button" id="done">
+            Completed
+          </button>
+          <button class="button" id="undone">
+            Pending
+          </button>
+          <button class="button" id="clear_filter">
+            All
+          </button>
+        </div>
+      </div>
+      <div class="author">
+        <br /><br />
+        Designed & Developed By:
+        <a href="https://github.com/naveenbisht02" class="author" target="blank"
+          >Naveen Singh Bisht</a
+        ><br />
+        <br />
+        <br />
+      </div>
+    </div>
+  </body>
+</html>
